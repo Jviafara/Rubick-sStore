@@ -1,8 +1,8 @@
 import {
-    AiFillLock,
     AiOutlineHome,
     AiOutlineShopping,
     AiOutlineShoppingCart,
+    AiOutlineUser,
 } from 'react-icons/ai';
 import { BiCommentCheck } from 'react-icons/bi';
 import { MdOutlineFavorite } from 'react-icons/md';
@@ -32,20 +32,20 @@ const user = [
     {
         display: 'favorites',
         path: '/favorites',
-        icon: <MdOutlineFavorite />,
+        icon: <MdOutlineFavorite size={24} />,
         state: 'favorites',
     },
     {
         display: 'reviews',
         path: '/reviews',
-        icon: <BiCommentCheck />,
+        icon: <BiCommentCheck size={24} />,
         state: 'reviews',
     },
     {
-        display: 'password update',
-        path: '/password-update',
-        icon: <AiFillLock />,
-        state: 'password.update',
+        display: 'User Profile',
+        path: '/profile',
+        icon: <AiOutlineUser size={24} />,
+        state: 'profile',
     },
 ];
 

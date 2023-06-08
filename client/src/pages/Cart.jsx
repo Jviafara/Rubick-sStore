@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Container from '../components/common/Container';
 import ProductsCartTable from '../components/common/ProductsCartTable';
 import {
     addcartItem,
@@ -51,14 +52,14 @@ const Cart = () => {
     };
 
     return (
-        <div className="flex flex-col items-center p-4 max-w-[95vw] md:max-w-[90vw] mx-auto">
+        <div className="flex justify-center p-4 ">
             <Helmet>
                 <title>Cart</title>
             </Helmet>
-            <div className="flex w-full mx-auto py-4 relative z-0">
-                <div className="w-full flex flex-col lg:flex-row items-start gap-8">
+            <div className="w-[90vw] py-4 relative z-0">
+                <div className="flex flex-col lg:flex-row items-start  gap-8">
                     {cartItems?.length === 0 ? (
-                        <div className="w-full lg:w-[70%] rounded-lg bg-cyan-100 p-6">
+                        <div className="w-full flex justify-center rounded-lg bg-cyan-100 p-6">
                             <p className="text-2xl text-center flex justify-center text-blue-900 gap-8">
                                 Cart Is Empty.
                                 <Link
@@ -113,12 +114,14 @@ const Cart = () => {
                                 </button>
                             )}
                         </div>
-                        <button
-                            onClick={handleClearCart}
-                            type="button"
-                            className="rounded-lg border bg-red-500 p-2 w-full text-white font-bold text-lg uppercase">
-                            Clear Cart!
-                        </button>
+                        {cartItems.length > 0 && (
+                            <button
+                                onClick={handleClearCart}
+                                type="button"
+                                className="rounded-lg border bg-red-500 p-2 w-full text-white font-bold text-lg uppercase">
+                                Clear Cart!
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>

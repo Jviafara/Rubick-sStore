@@ -28,7 +28,6 @@ const validateSchema = Yup.object().shape({
 
 const SignupForm = ({ switchAuthState }) => {
     const dispatch = useDispatch();
-
     const [isSignupRequest, setIsSignupRequest] = useState(false);
     const [errorMessage, setErrorMessage] = useState();
 

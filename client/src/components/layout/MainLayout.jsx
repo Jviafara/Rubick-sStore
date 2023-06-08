@@ -64,20 +64,22 @@ const MainLayout = () => {
             <div className="flex flex-col w-full">
                 {/* header */}
                 {location.pathname === '/' ? (
-                    <header className="w-full flex flex-col items-center h-full backdrop-blur-2xl">
-                        <Navbar />
+                    <header>
+                        <div className="w-full fixed top-0 left-0 z-[10] flex flex-col items-center bg-gray-200 bg-opacity-50 backdrop-blur-2xl">
+                            <Navbar />
+                        </div>
                         {/* <HeroSlide /> */}
                     </header>
                 ) : (
-                    <header>
+                    <div className="w-full fixed top-0 left-0 z-[10] flex flex-col items-center bg-gray-200 bg-opacity-50 backdrop-blur-2xl">
                         <Navbar />
-                    </header>
+                    </div>
                 )}
 
                 {/* header */}
 
                 {/* main */}
-                <div className="w-full min-h-[50vh] overflow-hidden flex-grow">
+                <div className="w-full relative z-0 min-h-[60vh] overflow-hidden my-12 pt-10 flex-grow">
                     <Outlet />
                 </div>
                 {/* main */}

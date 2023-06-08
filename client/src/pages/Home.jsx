@@ -7,7 +7,7 @@ import TutorialsSlide from '../components/common/TutorialsSlide';
 
 const Home = () => {
     return (
-        <div className="flex flex-col items-center max-w-[100vw] mt-4 mb-16">
+        <div className="flex flex-col items-center relative -z-[10]  mt-4 mb-16">
             <Helmet>
                 <title>Home</title>
             </Helmet>

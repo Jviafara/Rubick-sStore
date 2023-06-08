@@ -4,11 +4,11 @@ import { Swiper } from 'swiper/react';
 
 const AutoSwiper = ({ children }) => {
     return (
-        <div className="flex container max-w-[80vw] mx-auto">
+        <div className="flex w-full md:max-w-[80vw] relative z-0">
             <Swiper
-                slidesPerView={1}
+                slidesPerView={2}
                 loop={true}
-                spaceBetween={15}
+                spaceBetween={2}
                 pagination={{
                     dynamicBullets: true,
                 }}

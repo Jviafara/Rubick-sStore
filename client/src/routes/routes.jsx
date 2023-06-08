@@ -1,9 +1,11 @@
-// import ProtectedPage from '../components/common/ProtectedPage';
-// import FavoriteList from '../pages/FavoriteList';
+import ProtectedPage from '../components/common/ProtectedPage';
 import Cart from '../pages/Cart';
+import Favorites from '../pages/Favorites';
 import HomePage from '../pages/Home';
 import Product from '../pages/Product';
 import Products from '../pages/Products';
+import Reviews from '../pages/Reviews';
+import UserProfile from '../pages/UserProfile';
 
 export const routesGen = {
     home: '/',
@@ -35,11 +37,25 @@ const routes = [
         element: <Cart />,
         state: 'cart',
     },
-    // {
-    //     path: '/person/:personId',
-    //     element: <PersonDetail />,
-    //     state: 'person.detail',
-    // },
+    {
+        path: '/favorites',
+        element: <Favorites />,
+        state: 'favorites',
+    },
+    {
+        path: '/reviews',
+        element: <Reviews />,
+        state: 'reviews',
+    },
+    {
+        path: '/profile',
+        element: (
+            <ProtectedPage>
+                <UserProfile />
+            </ProtectedPage>
+        ),
+        state: 'profile',
+    },
     // {
     //     path: '/search',
     //     element: <MediaSearch />,

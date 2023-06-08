@@ -91,7 +91,7 @@ const MediaGrid = ({ filter, priceFilter, priceSort, query }) => {
     }, [dispatch]);
 
     return (
-        <div className="w-[95vw] md:w-[90vw] flex flex-col items-center">
+        <div className="w-[95vw] md:w-[90vw] flex flex-col items-center pb-12">
             <p className="my-2">
                 {'Category: ' +
                     filter.toUpperCase() +

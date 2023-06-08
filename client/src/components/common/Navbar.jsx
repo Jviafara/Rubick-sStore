@@ -27,7 +27,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="shadow-sm bg-gray-200  bg-opacity-50 backdrop-blur-2xl py-4 md:px-4 text-black max-w-[100vw] w-full">
+        <div className="shadow-smbg-gray-200 bg-opacity-50 backdrop-blur-2xl py-4 md:px-4 text-black max-w-[100vw] w-full">
             <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
             <UserMenu open={userMenuOpen} toggleMenu={toggleMenu} />
             <nav className="flex items-center md:justify-between gap-0 px-4">
@@ -75,7 +75,7 @@ const Navbar = () => {
                                 className="flex gap-2 items-center">
                                 <FaUserCircle size={24} />
                                 <h1 className="hidden md:inline-flex font-bold">
-                                    {user.name.toUpperCase().split(' ')[0]}
+                                    {user?.name?.toUpperCase().split(' ')[0]}
                                 </h1>
                             </div>
                         </li>

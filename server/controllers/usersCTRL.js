@@ -4,7 +4,6 @@ import User from '../models/user.js';
 
 const register = async (req, res) => {
     const { name, email, password } = req.body;
-
     try {
         //Register User
         const user = new User();
@@ -31,7 +30,6 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
-
         const user = await User.findOne({ email }).select(
             'email password salt id name isAdmin'
         );

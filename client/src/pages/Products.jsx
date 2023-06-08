@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import ProductFilters from '../components/common/ProductFilters';
+import ProductGrid from '../components/common/ProductGrid';
+import SearchBar from '../components/common/SearchBar';
 
 const Products = () => {
+    const [filter, setFilter] = useState('All products');
+    const [query, setQuery] = useState('');
+    const [priceFilter, setPriceFilter] = useState([0, 1000]);
+    const [priceSort, setPriceSort] = useState('');
+
     return (
-        <div>
+        <div className="w-full flex flex-col items-center">
             <Helmet>
-                <title>Home</title>
+                <title>Products</title>
             </Helmet>
-            <h1>Products</h1>
+            <SearchBar setQuery={setQuery} />
+            <ProductFilters
+                filter={filter}
+                setFilter={setFilter}
+                priceSort={priceSort}
+                setPriceSort={setPriceSort}
+                setPriceFilter={setPriceFilter}
+            />
+            <ProductGrid
+                query={query}
+                filter={filter}
+                priceFilter={priceFilter}
+                priceSort={priceSort}
+            />
         </div>
     );
 };

@@ -3,7 +3,6 @@ import reviewModel from '../models/review.js';
 
 const create = async (req, res) => {
     try {
-        console.log(req.body);
         const review = new reviewModel({
             user: req.user.id,
             ...req.body,

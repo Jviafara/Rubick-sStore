@@ -1,13 +1,12 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { Fragment, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import menuConfigs from '../../configs/menu.config';
 import Logo from './Logo';
 
 const Sidebar = ({ open, toggleSidebar }) => {
     const { user } = useSelector((state) => state.user);
-    const { appState } = useSelector((state) => state.appState);
 
     const sideNavRef = useRef(null);
 
@@ -80,7 +79,7 @@ const Sidebar = ({ open, toggleSidebar }) => {
                                         USER
                                     </h6>
                                     <ul className="flex flex-col gap-2 ml-4 justify-center">
-                                        {menuConfigs.main.map((item, index) => (
+                                        {menuConfigs.user.map((item, index) => (
                                             <li key={index}>
                                                 <Link
                                                     to={item.path}

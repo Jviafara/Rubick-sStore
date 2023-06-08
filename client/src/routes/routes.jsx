@@ -1,23 +1,17 @@
-import ProtectedPage from '../components/common/ProtectedPage';
-import HomePage from '../pages/Home';
-import Products from '../pages/Products';
+// import ProtectedPage from '../components/common/ProtectedPage';
 // import FavoriteList from '../pages/FavoriteList';
-// import MediaDetail from '../pages/MediaDetail';
-// import MediaList from '../pages/MediaList';
-// import MediaSearch from '../pages/MediaSearch';
-// import PasswordUpdate from '../pages/PasswordUpdate';
-// import PersonDetail from '../pages/PersonDetail';
-// import ReviewList from '../pages/ReviewList';
+import Cart from '../pages/Cart';
+import HomePage from '../pages/Home';
+import Product from '../pages/Product';
+import Products from '../pages/Products';
 
 export const routesGen = {
     home: '/',
-    mediaList: (type) => `/${type}`,
-    mediaDetail: (type, id) => `/${type}/${id}`,
-    search: '/search',
     person: (id) => `/person/${id}`,
     favoriteList: '/favorites',
-    reviewList: '/reviews',
-    passwordUpdate: '/password-update',
+    products: '/products',
+    product: (slug) => `/product/slug/${slug}`,
+    cart: '/cart',
 };
 
 const routes = [
@@ -30,6 +24,16 @@ const routes = [
         path: '/products',
         element: <Products />,
         state: 'products',
+    },
+    {
+        path: 'product/slug/:slug',
+        element: <Product />,
+        state: 'product',
+    },
+    {
+        path: '/cart',
+        element: <Cart />,
+        state: 'cart',
     },
     // {
     //     path: '/person/:personId',

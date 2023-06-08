@@ -2,6 +2,7 @@ import responseHandler from '../handlers/response.handler.js';
 import favoriteModel from '../models/favorite.js';
 
 const addFavorite = async (req, res) => {
+    console.log(req.body);
     try {
         const isFavorite = await favoriteModel.findOne({
             user: req.user.id,

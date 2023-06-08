@@ -1,32 +1,23 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import PageWrapper from './components/common/PageWrapper';
-// import Footer from './components/Footer';
-// import Navbar from './components/Navbar';
-// import ProtectedRoutes from './components/ProtectedRoutes';
-// import ShowNavbar from './components/ShowNavbar';
-// import Cart from './pages/Cart';
-// import DashBoard from './pages/DashBoard';
-// import Home from './pages/Home';
-// import OrderDetails from './pages/OrderDetails';
-// import OrderHistory from './pages/OrderHistory';
-// import PlaceOrder from './pages/PlaceOrder';
-// import Product from './pages/Product';
-// import Products from './pages/Products';
-// import ShippingAddress from './pages/ShippingAddress';
-// import Signin from './pages/Signin';
-// import Signup from './pages/Signup';
-// import UserProfile from './pages/UserProfile';
 import MainLayout from './components/layout/MainLayout';
 import routes from './routes/routes';
 
+import 'react-toastify/dist/ReactToastify.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 function App() {
     return (
-        <div
-            style={{
-                backgroundImage: 'url(/assets/background.png)',
-            }}
-            className="w-full h-full fixed bg-left-top bg-cover">
+        <div className="w-full h-full -z-[999]">
+            <div
+                style={{
+                    backgroundImage: 'url(/assets/background.jpg)',
+                }}
+                className="w-[100vw] h-full fixed bg-left-top bg-cover -z-[999]"
+            />
             {/* config Toastify */}
             <ToastContainer
                 position="bottom-left"

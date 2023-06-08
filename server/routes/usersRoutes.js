@@ -18,7 +18,7 @@ router.post(
         .withMessage('Email not valid')
         .custom(async (value) => {
             const user = await User.findOne({ email: value });
-            if (user) Promise.reject('User already exists');
+            if (user) throw new Error('User already exists');
         }),
     body('password')
         .exists()

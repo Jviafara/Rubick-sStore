@@ -6,7 +6,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import LoadingBox from '../../components/LoadingBox';
 import MessageBox from '../../components/MessageBox';
-import ProductCard from '../../components/ProductCard';
+import ProductCard from '../../components/common/ProductCard';
 import { getError } from '../../utils';
 
 const reducer = (state, action) => {

@@ -1,7 +1,6 @@
 import {
     AiFillLock,
     AiOutlineHome,
-    AiOutlineSearch,
     AiOutlineShopping,
     AiOutlineShoppingCart,
 } from 'react-icons/ai';

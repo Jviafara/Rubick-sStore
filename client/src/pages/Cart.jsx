@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import Container from '../components/common/Container';
 import ProductsCartTable from '../components/common/ProductsCartTable';
 import {
     addcartItem,
@@ -20,7 +19,7 @@ const Cart = () => {
 
     const checkoutHandler = () => {
         if (user) {
-            navigate('/shippingAddress');
+            navigate('/shipping-address');
         } else {
             navigate('/signin');
         }

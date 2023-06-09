@@ -3,11 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 export const cartSlice = createSlice({
     name: 'Cart',
     initialState: {
-        shippingAddress: null,
+        shippingAddress: [],
         cartItems: [],
     },
     reducers: {
         setShippingAddress: (state, action) => {
+            localStorage.setItem(
+                'shippingAddress',
+                JSON.stringify(action.payload)
+            );
             state.shippingAddress = action.payload;
         },
         removecartItem: (state, action) => {

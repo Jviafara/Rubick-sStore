@@ -5,6 +5,7 @@ import HomePage from '../pages/Home';
 import Product from '../pages/Product';
 import Products from '../pages/Products';
 import Reviews from '../pages/Reviews';
+import ShippingAddress from '../pages/ShippingAddress';
 import UserProfile from '../pages/UserProfile';
 
 export const routesGen = {
@@ -55,6 +56,15 @@ const routes = [
             </ProtectedPage>
         ),
         state: 'profile',
+    },
+    {
+        path: '/shipping-address',
+        element: (
+            <ProtectedPage>
+                <ShippingAddress />
+            </ProtectedPage>
+        ),
+        state: 'shipping addres',
     },
     // {
     //     path: '/search',

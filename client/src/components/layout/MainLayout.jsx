@@ -8,7 +8,10 @@ import { Link } from 'react-scroll';
 import { toast } from 'react-toastify';
 import favoriteApi from '../../api/modules/favoriteApi';
 import userApi from '../../api/modules/userApi';
-import { setcartItems } from '../../redux/features/cartSlice';
+import {
+    setShippingAddress,
+    setcartItems,
+} from '../../redux/features/cartSlice';
 import { setListFavorites, setUser } from '../../redux/features/userSlice';
 import AuthModal from '../common/AuthModal';
 import Footer from '../common/Footer';
@@ -49,6 +52,16 @@ const MainLayout = () => {
             dispatch(setcartItems(cartItems));
         };
         getCartItems();
+    }, [dispatch]);
+
+    useEffect(() => {
+        const getShippingAddress = async () => {
+            const shippingAddress = JSON.parse(
+                localStorage.getItem('shippingAddress')
+            );
+            dispatch(setShippingAddress(shippingAddress));
+        };
+        getShippingAddress();
     }, [dispatch]);
 
     return (

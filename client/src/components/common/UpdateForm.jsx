@@ -1,15 +1,12 @@
 import { Field, FormikProvider, useFormik } from 'formik';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import userApi from '../../api/modules/userApi';
-import UserProfile from '../../pages/UserProfile';
 import { setAuthModalOpen } from '../../redux/features/authModalSlice';
 import { setUser } from '../../redux/features/userSlice';
 import Container from './Container';
-import FavoriteSlide from './FavoriteSlide';
 
 const style = {
     error: `ring-red-500 ring-1 bg-red-100`,

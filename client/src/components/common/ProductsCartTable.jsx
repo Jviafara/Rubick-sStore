@@ -1,9 +1,22 @@
 import React, { useEffect } from 'react';
 import { FaMinusCircle, FaPlusCircle, FaTrash } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { addcartItem, removecartItem } from '../../redux/features/cartSlice';
 
-const ProductsCartTable = ({ cartItems, updateCartHandler, removeItem }) => {
+const ProductsCartTable = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const { cartItems } = useSelector((state) => state.cart);
+    const updateCartHandler = async (item, quantity) => {
+        dispatch(addcartItem({ ...item, quantity }));
+    };
+
+    const removeItem = async (item) => {
+        dispatch(removecartItem({ ...item }));
+    };
+
     useEffect(() => {
         if (!cartItems) navigate(0);
     }, [navigate, cartItems]);

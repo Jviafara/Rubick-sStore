@@ -1,9 +1,10 @@
-import express from 'express';
+import 'dotenv/config';
+import Stripe from 'stripe';
 import responseHandler from '../handlers/response.handler.js';
 import Order from '../models/order.js';
 import User from '../models/user.js';
 
-const router = express.Router();
+const stripe = Stripe(process.env.STRIPE_S_KEY);
 
 const create = async (req, res) => {
     try {
@@ -13,10 +14,10 @@ const create = async (req, res) => {
         const order = await Order.create({
             orderItems: req.body.orderItems.map((product) => ({
                 ...product,
-                product: product._id,
+                product: product.id,
             })),
             shippingAddress: req.body.shippingAddress,
-            paymentMethod: req.body.paymentMethod,
+            paymentId: req.body.paymentId,
             itemsPrice: req.body.itemsPrice,
             shippingPrice: req.body.shippingPrice,
             totalPrice: req.body.totalPrice,
@@ -57,6 +58,20 @@ const ordersList = async (req, res) => {
     }
 };
 
+const ordersListUser = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+        if (!user) return responseHandler.unauthorize(res);
+
+        //Find Orders
+        const orders = await Order.find({ user: user.id });
+
+        responseHandler.ok(res, orders);
+    } catch {
+        responseHandler.error(res);
+    }
+};
+
 const updateOrder = async (req, res) => {
     try {
         const user = await User.findById(req.user.id);
@@ -83,17 +98,18 @@ const orderPayment = async (req, res) => {
         const order = await Order.findById(req.params.id);
         if (!order) return responseHandler.notFound(res);
 
-        order.isPaid = true;
-        order.paidAt = Date.now();
-        // order.paymentResults = {
-        //     id: req.body.id,
-        //     status: req.body.status,
-        //     update_time: req.body.update_time,
-        //     email_address: req.body.email_address,
-        // };
+        const charge = await stripe.charges.create({
+            source: req.body.token.id,
+            amount: req.body.amount,
+            currency: 'usd',
+        });
 
+        order.isPaid = true;
+        order.paymentId = charge.id;
+        order.paidAt = Date.now();
         await order.save();
-        responseHandler.ok(res);
+
+        responseHandler.ok(res, order);
     } catch {
         responseHandler.error(res);
     }
@@ -138,4 +154,5 @@ export default {
     orderDelivery,
     remove,
     updateOrder,
+    ordersListUser,
 };

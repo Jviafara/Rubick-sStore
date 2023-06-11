@@ -1,4 +1,5 @@
 import privateClient from '../client/privateClient';
+import privateClientFiles from '../client/privateClientFiles';
 import publicClient from '../client/publicClient';
 
 const productEndpoints = {
@@ -31,16 +32,19 @@ const productApi = {
         description,
     }) => {
         try {
-            const response = await privateClient.post(productEndpoints.create, {
-                name,
-                slug,
-                category,
-                images,
-                price,
-                countInStock,
-                brand,
-                description,
-            });
+            const response = await privateClientFiles.post(
+                productEndpoints.create,
+                {
+                    name,
+                    slug,
+                    category,
+                    images,
+                    price,
+                    countInStock,
+                    brand,
+                    description,
+                }
+            );
             return { response };
         } catch (err) {
             return { err };

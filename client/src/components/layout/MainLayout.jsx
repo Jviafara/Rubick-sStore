@@ -65,7 +65,7 @@ const MainLayout = () => {
     }, [dispatch]);
 
     return (
-        <div className="w-full min-h-screen">
+        <div className="max-w-[100vw] w-full  min-h-screen">
             {/* global loading */}
             <GlobalLoading />
             {/* global loading */}

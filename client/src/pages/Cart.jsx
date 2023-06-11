@@ -4,11 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import ProductsCartTable from '../components/common/ProductsCartTable';
-import {
-    addcartItem,
-    clearCart,
-    removecartItem,
-} from '../redux/features/cartSlice';
+import { clearCart } from '../redux/features/cartSlice';
 
 const Cart = () => {
     const navigate = useNavigate();
@@ -23,14 +19,6 @@ const Cart = () => {
         } else {
             navigate('/signin');
         }
-    };
-
-    const updateCartHandler = async (item, quantity) => {
-        dispatch(addcartItem({ ...item, quantity }));
-    };
-
-    const removeItem = async (item) => {
-        dispatch(removecartItem({ ...item }));
     };
 
     const handleClearCart = async (item) => {
@@ -70,11 +58,7 @@ const Cart = () => {
                         </div>
                     ) : (
                         <div className="w-full lg:w-[70%]">
-                            <ProductsCartTable
-                                cartItems={cartItems}
-                                updateCartHandler={updateCartHandler}
-                                removeItem={removeItem}
-                            />
+                            <ProductsCartTable />
                         </div>
                     )}
                     <div className="w-full lg:w-[30%] max-h-max flex flex-col gap-4 ">

@@ -69,6 +69,13 @@ const remove = async (req, res) => {
         const user = await User.findById(req.user.id).select('isAdmin');
         if (!user.isAdmin) return responseHandler.unauthorize(res);
 
+        const favorite = await Favorite.findOne({
+            user: user.id,
+            product: req.params.id,
+        });
+
+        if (favorite) await Favorite.findByIdAndDelete(favorite.id);
+
         await Product.findByIdAndDelete(req.params.id);
 
         responseHandler.ok(res);

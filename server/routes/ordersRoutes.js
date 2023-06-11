@@ -5,10 +5,11 @@ const router = express.Router();
 
 import orderCTRL from '../controllers/ordersCTRL.js';
 
-router.post('/create', orderCTRL.create);
+router.post('/create', tokenMiddleware.auth, orderCTRL.create);
 router.get('/order-detail/:id', tokenMiddleware.auth, orderCTRL.orderDetail);
 router.get('/', tokenMiddleware.auth, orderCTRL.ordersList);
-router.put('/order-payment/:id', tokenMiddleware.auth, orderCTRL.orderPayment);
+router.get('/history', tokenMiddleware.auth, orderCTRL.ordersListUser);
+router.post('/pay/:id', tokenMiddleware.auth, orderCTRL.orderPayment);
 router.put(
     '/order-delivery/:id',
     tokenMiddleware.auth,

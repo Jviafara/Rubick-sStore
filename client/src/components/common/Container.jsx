@@ -12,11 +12,9 @@ const Container = ({ header, children, seeMore }) => {
                             {header}
                         </h1>
                         {seeMore && (
-                            <Link
-                                to={seeMore}
-                                className="border-2 border-pink rounded-lg border-opacity-30 py-1 px-2 hover:font-bold hover:bg-pink hover:bg-opacity-30 hover:scale-105">
-                                See More...!
-                            </Link>
+                            <div className="border border-pink rounded-lg bg-gray-200  bg-opacity-50  py-1 px-2  hover:scale-105">
+                                <Link to={seeMore}>See More...!</Link>
+                            </div>
                         )}
                     </div>
                 )}

@@ -1,6 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useEffect, useRef } from 'react';
 import { AiOutlineLogout } from 'react-icons/ai';
+import { MdDashboard } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import menuConfigs from '../../configs/menu.config';
@@ -68,12 +69,16 @@ const UserMenu = ({ open, toggleMenu }) => {
                                                         </li>
                                                     )
                                                 )}
+
                                                 <li>
                                                     <button
                                                         type="button"
                                                         onClick={() => {
                                                             dispatch(
                                                                 setUser(null)
+                                                            );
+                                                            localStorage.removeItem(
+                                                                'shippingAddress'
                                                             );
                                                             navigate(0);
                                                         }}

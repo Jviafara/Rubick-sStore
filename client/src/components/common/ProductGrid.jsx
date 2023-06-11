@@ -23,7 +23,7 @@ const MediaGrid = ({ filter, priceFilter, priceSort, query }) => {
                             product.category
                                 ?.toLowerCase()
                                 ?.includes(query?.toLowerCase()) ||
-                            product._id
+                            product.id
                                 ?.toLowerCase()
                                 ?.includes(query?.toLowerCase())
                     ).length <= 0
@@ -38,7 +38,7 @@ const MediaGrid = ({ filter, priceFilter, priceSort, query }) => {
                             product.category
                                 ?.toLowerCase()
                                 ?.includes(query?.toLowerCase()) ||
-                            product._id
+                            product.id
                                 ?.toLowerCase()
                                 ?.includes(query?.toLowerCase())
                     )

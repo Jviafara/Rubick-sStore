@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import PageWrapper from './components/common/PageWrapper';
 import MainLayout from './components/layout/MainLayout';
-import routes from './routes/routes';
+import { routes } from './routes/routes';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'swiper/css';
@@ -11,7 +11,7 @@ import 'swiper/css/pagination';
 
 function App() {
     return (
-        <div className="w-full h-full -z-[999]">
+        <div className="max-w-[99vw] h-full -z-[999]">
             <div
                 style={{
                     backgroundImage: 'url(/assets/background.jpg)',
@@ -63,28 +63,6 @@ function App() {
                             )
                         )}
                     </Route>
-                    {/* <Route path="/" element={<Home />} />
-                    <Route path="/product/slug/:slug" element={<Product />} />
-                    <Route path="/products" element={<Products />} />
-                    <Route path="/cart" element={<Cart />} />
-                    <Route path="/signin" element={<Signin />} />
-                    <Route path="/signup" element={<Signup />} />
-                    <Route
-                        path="/shippingAddress"
-                        element={<ShippingAddress />}
-                    />
-                    <Route path="/place-order" element={<PlaceOrder />} />
-                    <Route path="/order/:id" element={<OrderDetails />} />
-                    <Route path="/orders-history" element={<OrderHistory />} />
-                    <Route path="/profile" element={<UserProfile />} />
-                    <Route
-                        path="/dashboard"
-                        element={
-                            <ProtectedRoutes>
-                                <DashBoard />
-                            </ProtectedRoutes>
-                        }
-                    /> */}
                 </Routes>
             </BrowserRouter>
         </div>

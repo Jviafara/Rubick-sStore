@@ -5,6 +5,7 @@ import {
     AiOutlineUser,
 } from 'react-icons/ai';
 import { BiCommentCheck } from 'react-icons/bi';
+import { BsFillBagFill } from 'react-icons/bs';
 import { MdOutlineFavorite } from 'react-icons/md';
 
 const main = [
@@ -30,6 +31,12 @@ const main = [
 
 const user = [
     {
+        display: 'User Profile',
+        path: '/profile',
+        icon: <AiOutlineUser size={24} />,
+        state: 'profile',
+    },
+    {
         display: 'favorites',
         path: '/favorites',
         icon: <MdOutlineFavorite size={24} />,
@@ -42,10 +49,10 @@ const user = [
         state: 'reviews',
     },
     {
-        display: 'User Profile',
-        path: '/profile',
-        icon: <AiOutlineUser size={24} />,
-        state: 'profile',
+        display: 'orders',
+        path: '/orders',
+        icon: <BsFillBagFill size={24} />,
+        state: 'orders',
     },
 ];
 

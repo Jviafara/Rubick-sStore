@@ -2,20 +2,14 @@ import ProtectedPage from '../components/common/ProtectedPage';
 import Cart from '../pages/Cart';
 import Favorites from '../pages/Favorites';
 import HomePage from '../pages/Home';
+import OrderDetails from '../pages/OrderDetails';
+import Orders from '../pages/Orders';
+import PlaceOrder from '../pages/PlaceOrder';
 import Product from '../pages/Product';
 import Products from '../pages/Products';
 import Reviews from '../pages/Reviews';
 import ShippingAddress from '../pages/ShippingAddress';
 import UserProfile from '../pages/UserProfile';
-
-export const routesGen = {
-    home: '/',
-    person: (id) => `/person/${id}`,
-    favoriteList: '/favorites',
-    products: '/products',
-    product: (slug) => `/product/slug/${slug}`,
-    cart: '/cart',
-};
 
 const routes = [
     {
@@ -66,46 +60,33 @@ const routes = [
         ),
         state: 'shipping addres',
     },
-    // {
-    //     path: '/search',
-    //     element: <MediaSearch />,
-    //     state: 'search',
-    // },
-    // {
-    //     path: '/password-update',
-    //     element: (
-    //         <ProtectedPage>
-    //             <PasswordUpdate />
-    //         </ProtectedPage>
-    //     ),
-    //     state: 'password.update',
-    // },
-    // {
-    //     path: '/favorites',
-    //     element: (
-    //         <ProtectedPage>
-    //             <FavoriteList />
-    //         </ProtectedPage>
-    //     ),
-    //     state: 'favorites',
-    // },
-    // {
-    //     path: '/reviews',
-    //     element: (
-    //         <ProtectedPage>
-    //             <ReviewList />
-    //         </ProtectedPage>
-    //     ),
-    //     state: 'reviews',
-    // },
-    // {
-    //     path: '/:mediaType',
-    //     element: <MediaList />,
-    // },
-    // {
-    //     path: '/:mediaType/:mediaId',
-    //     element: <MediaDetail />,
-    // },
+    {
+        path: '/place-order',
+        element: (
+            <ProtectedPage>
+                <PlaceOrder />
+            </ProtectedPage>
+        ),
+        state: 'place order',
+    },
+    {
+        path: '/order/:id',
+        element: (
+            <ProtectedPage>
+                <OrderDetails />
+            </ProtectedPage>
+        ),
+        state: 'place order',
+    },
+    {
+        path: '/orders',
+        element: (
+            <ProtectedPage>
+                <Orders />
+            </ProtectedPage>
+        ),
+        state: 'orderd history',
+    },
 ];
 
-export default routes;
+export { routes };

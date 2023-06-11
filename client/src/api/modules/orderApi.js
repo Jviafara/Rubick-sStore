@@ -1,14 +1,14 @@
 import privateClient from '../client/privateClient';
-import publicClient from '../client/publicClient';
 
 const orderEndpoints = {
     getList: 'orders/',
+    getListUser: 'orders/history',
     create: 'orders/create',
     orderDetail: ({ orderId }) => `orders/order-detail/${orderId}`,
     productInfoById: ({ orderId }) => `orders/${orderId}`,
-    remove: ({ orderId }) => `orders/${orderId}`,
+    remove: ({ orderId }) => `orders/delete/${orderId}`,
     update: ({ orderId }) => `orders/update/${orderId}`,
-    orderPayment: ({ orderId }) => `orders/order-payment/${orderId}`,
+    orderPayment: ({ orderId }) => `orders/pay/${orderId}`,
     orderDelivery: ({ orderId }) => `orders/order-delivery/${orderId}`,
 };
 
@@ -21,9 +21,19 @@ const orderApi = {
             return { err };
         }
     },
+    getListUser: async () => {
+        try {
+            const response = await privateClient.get(
+                orderEndpoints.getListUser
+            );
+            return { response };
+        } catch (err) {
+            return { err };
+        }
+    },
     create: async ({
         shippingAddress,
-        paymentMethod,
+        paymentId,
         itemsPrice,
         shippingPrice,
         totalPrice,
@@ -32,7 +42,7 @@ const orderApi = {
         try {
             const response = await privateClient.post(orderEndpoints.create, {
                 shippingAddress,
-                paymentMethod,
+                paymentId,
                 itemsPrice,
                 shippingPrice,
                 totalPrice,
@@ -45,6 +55,7 @@ const orderApi = {
     },
     remove: async ({ orderId }) => {
         try {
+            console.log(orderId);
             const response = await privateClient.delete(
                 orderEndpoints.remove({ orderId })
             );
@@ -77,10 +88,11 @@ const orderApi = {
             return { err };
         }
     },
-    orderPayment: async ({ orderId }) => {
+    orderPayment: async ({ orderId, token, amount }) => {
         try {
-            const response = await privateClient.put(
-                orderEndpoints.orderPayment({ orderId })
+            const response = await privateClient.post(
+                orderEndpoints.orderPayment({ orderId }),
+                { token, amount }
             );
             return { response };
         } catch (err) {

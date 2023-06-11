@@ -15,7 +15,7 @@ const Footer = () => {
         setEmail('');
     };
     return (
-        <div className="shadow-inner bg-gray-200 bg-opacity-50 backdrop-blur-3xl px-2 text-black w-[100vw] h-full">
+        <div className="shadow-inner w-full overflow-hidden bg-gray-200 bg-opacity-50 backdrop-blur-3xl px-2 text-black">
             <footer>
                 <div className="h-full w-full flex flex-col items-center justify-center gap-8 pt-8">
                     <Logo />

@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { BsFillArrowUpSquareFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Link } from 'react-scroll';
 import { toast } from 'react-toastify';
 import favoriteApi from '../../api/modules/favoriteApi';
 import userApi from '../../api/modules/userApi';

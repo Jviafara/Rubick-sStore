@@ -1,7 +1,7 @@
 import axios from 'axios';
 import queryString from 'query-string';
 
-const baseURL = 'https://rubicksstore.up.railway.app/api/v1/';
+const baseURL = 'https://rubikstore.onrender.com/api/v1/';
 
 const privateClientFiles = axios.create({
     baseURL,

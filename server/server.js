@@ -21,3 +21,5 @@ const server = http.createServer(app);
 app.listen(port, () =>
     console.log(`Server Running on  http://localhost:${port}`)
 );
+
+export default app;

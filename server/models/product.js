@@ -13,7 +13,6 @@ const productSchema = new mongoose.Schema(
         rating: { type: Number },
         numReviews: { type: Number },
         description: { type: String },
-        isFavorite: { type: Boolean },
     },
     modelOptions
 );

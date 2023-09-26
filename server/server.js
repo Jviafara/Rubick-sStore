@@ -7,7 +7,7 @@ import './config/connectDB.js';
 import router from './routes/router.js';
 const app = express();
 
-const { readdirSync } = require('fs');
+import { readdirSync } from 'fs';
 readdirSync('./routes').map((file) =>
     app.use('/', require('./routes/' + file))
 );

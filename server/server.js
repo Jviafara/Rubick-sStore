@@ -7,6 +7,11 @@ import './config/connectDB.js';
 import router from './routes/router.js';
 const app = express();
 
+const { readdirSync } = require('fs');
+readdirSync('./routes').map((file) =>
+    app.use('/', require('./routes/' + file))
+);
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

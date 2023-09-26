@@ -15,6 +15,10 @@ app.use(cookieParser());
 //Routes
 app.use('/api/v1', router);
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
 const port = process.env.PORT || 8080;
 const server = http.createServer(app);
 

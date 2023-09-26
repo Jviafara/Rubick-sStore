@@ -4,10 +4,12 @@
     "type": "module",
     "description": "",
     "main": "server.js",
+    "engines": {
+        "node": "18.x"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon server.js",
-        "vercel-build": "echo hello"
+        "start": "nodemon server.js"
     },
     "author": "Jesús Viafara",
     "license": "ISC",

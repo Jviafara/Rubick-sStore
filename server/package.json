@@ -3,12 +3,9 @@
     "version": "1.0.0",
     "type": "module",
     "description": "",
-    "main": "server.js",
-    "engines": {
-        "node": "18.x"
-    },
+    "main": "index.js",
     "scripts": {
-        "start": "nodemon server.js"
+        "start": "node index.js"
     },
     "author": "Jesús Viafara",
     "license": "ISC",
